@@ -1,6 +1,5 @@
 import { ArrowRight, Clock, Shield, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import corexDashboard from "@/assets/corex-dashboard.jpg";
 import timetickMobile from "@/assets/timetick-mobile.jpg";
 import safexSafety from "@/assets/safex-safety.jpg";
@@ -17,7 +16,7 @@ const ProductShowcase = () => {
       color: "from-blue-500 to-cyan-500",
     },
     {
-      id: "timetick",
+      id: "timetick", 
       title: "Time Tick",
       description: "AI-powered GPS-enabled attendance system for seamless workforce management",
       icon: Clock,
@@ -37,15 +36,23 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background floating elements */}
+      <div className="absolute inset-0">
+        <div className="floating-blob w-96 h-96 bg-gradient-to-r from-green-400 to-blue-400 top-10 right-0" style={{ animationDelay: '1s' }} />
+        <div className="floating-blob w-72 h-72 bg-gradient-to-r from-pink-400 to-purple-400 bottom-0 left-10" style={{ animationDelay: '4s' }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium mb-6">
-            Our Innovation Suite
+          <div className="inline-block text-sm font-medium text-primary mb-4">
+            Our Innovation Suite  
           </div>
-          <h2 className="text-h2 font-bold text-foreground mb-4">
-            Powerful Software Solutions
+          <h2 className="text-h2 font-bold text-foreground mb-6">
+            Powerful Software
+            <br />
+            <span className="hero-gradient">Solutions</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover our comprehensive range of enterprise-grade software solutions, 
@@ -58,32 +65,30 @@ const ProductShowcase = () => {
           {products.map((product, index) => {
             const IconComponent = product.icon;
             return (
-              <Card key={product.id} className="gradient-card float-card group overflow-hidden">
+              <div key={product.id} className="glass-card p-6 rounded-2xl group hover:scale-105 transition-all duration-500">
                 {/* Product Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20`} />
+                <div className="relative h-48 overflow-hidden rounded-xl mb-6">
                   <img
                     src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center shadow-lg`}>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                   </div>
                 </div>
 
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                {/* Content */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {product.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
                     {product.description}
-                  </CardDescription>
-                </CardHeader>
+                  </p>
 
-                <CardContent className="space-y-6">
                   {/* Features */}
                   <div className="grid grid-cols-2 gap-2">
                     {product.features.map((feature) => (
@@ -95,22 +100,25 @@ const ProductShowcase = () => {
                   </div>
 
                   {/* CTA */}
-                  <Button variant="outline" className="w-full group-hover:border-primary group-hover:text-primary transition-all">
+                  <Button variant="outline" className="w-full mt-6 group-hover:border-primary group-hover:text-primary transition-all rounded-xl">
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             );
           })}
         </div>
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
+          <p className="text-muted-foreground mb-6 text-lg">
             Ready to transform your business with our innovative solutions?
           </p>
-          <Button variant="hero" size="lg" className="px-8 py-4">
+          <Button 
+            size="lg" 
+            className="px-8 py-4 bg-foreground text-background hover:bg-foreground/90 rounded-xl"
+          >
             Schedule a Demo
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>

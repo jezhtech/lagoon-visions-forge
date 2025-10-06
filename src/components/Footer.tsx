@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -9,8 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src="/lagoon-logo.png" alt="Lagoon" className="h-8 w-auto" />
-              <span className="text-xl font-bold">Lagoon Technologies</span>
+              <img src={logo} alt="Lagoon" className="h-8 w-auto" />
             </div>
             <p className="text-white/80 leading-relaxed">
               Leading software development company in UAE, building innovative 

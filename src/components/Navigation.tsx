@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,16 +17,15 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          {/* Logo image only */}
+          <Link to="/" className="flex items-center">
             <img
-              src="/lagoon-logo.png"
+              src={logo}
               alt="Lagoon Technologies"
-              className="h-8 w-auto"
+              className="h-12 w-auto"
               loading="eager"
               decoding="async"
             />
-            <span className="text-xl font-extrabold tracking-tight" style={{ color: 'hsl(84 70% 45%)' }}>LAGOON</span>
           </Link>
 
           {/* Desktop Navigation */}

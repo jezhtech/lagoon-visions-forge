@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    /* Base colors - clean white background */
-    --background: 0 0% 100%; /* Pure white */
-    --foreground: 15 23 42; /* Slate-900 for text */
+    /* Strict palette: green, black, white */
+    --background: 0 0% 100%; /* white */
+    --foreground: 0 0% 0%; /* black */
     
     /* Card and UI elements */
     --card: 0 0% 100%;
@@ -14,19 +14,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 15 23 42;
     
-    /* Primary brand colors - modern purple-blue */
-    --primary: 99 102 241; /* Indigo-500 */
+    /* Primary brand color - Green */
+    --primary: 84 70% 45%; /* green */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 165 180 252; /* Indigo-300 */
-    --primary-glow: 196 181 253; /* Violet-300 */
+    --primary-light: 84 70% 85%;
+    --primary-glow: 84 70% 75%;
     
     /* Secondary colors */
-    --secondary: 248 250 252; /* Slate-50 */
-    --secondary-foreground: 15 23 42;
+    --secondary: 0 0% 100%; /* white */
+    --secondary-foreground: 0 0% 0%; /* black */
     
     /* Muted colors */
-    --muted: 241 245 249; /* Slate-100 */
-    --muted-foreground: 100 116 139; /* Slate-500 */
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 20%;
     
     /* Accent colors */
     --accent: 248 250 252;
@@ -46,18 +46,18 @@
     /* Borders and inputs */
     --border: 226 232 240; /* Slate-200 */
     --input: 226 232 240;
-    --ring: 99 102 241;
+    --ring: 84 70% 45%;
     
-    /* Gradients - vibrant like enyard */
-    --gradient-hero: linear-gradient(135deg, hsl(237 92% 70%) 0%, hsl(285 100% 80%) 100%);
-    --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 250, 252, 0.4) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(220 13% 96%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(312 73% 75%) 0%, hsl(267 100% 75%) 100%);
+    /* Monochrome + green gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(84 70% 45%) 0%, hsl(84 70% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(84 70% 45%) 0%, hsl(0 0% 0%) 100%);
     
     /* Shadows - soft and modern */
     --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --shadow-hero: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+    --shadow-glow: 0 0 40px rgba(0, 0, 0, 0.15);
     --shadow-float: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     
     /* Border radius */
@@ -162,7 +162,7 @@
   }
   
   .hero-gradient {
-    @apply bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-emerald-300 bg-clip-text text-transparent;
   }
   
   .stats-number {
@@ -185,21 +185,21 @@
   }
   
   .floating-blob-1 {
-    @apply w-72 h-72 bg-gradient-to-r from-blue-400 to-purple-500;
+    @apply w-72 h-72 bg-gradient-to-r from-lime-400 to-emerald-300;
     top: 10%;
     right: 10%;
     animation-delay: 0s;
   }
   
   .floating-blob-2 {
-    @apply w-96 h-96 bg-gradient-to-r from-pink-400 to-yellow-400;
+    @apply w-96 h-96 bg-gradient-to-r from-emerald-300 to-lime-400;
     bottom: 10%;
     left: 5%;
     animation-delay: 2s;
   }
   
   .floating-blob-3 {
-    @apply w-64 h-64 bg-gradient-to-r from-green-400 to-blue-500;
+    @apply w-64 h-64 bg-gradient-to-r from-lime-300 to-emerald-400;
     top: 50%;
     left: 80%;
     animation-delay: 4s;
@@ -226,6 +226,98 @@
   /* Smooth scroll indicator */
   .scroll-indicator {
     @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce;
+  }
+
+  /* Hero surface with soft radial green gradients on white */
+  .hero-surface {
+    position: relative;
+  }
+  .hero-surface::before {
+    content: "";
+    position: absolute;
+    inset: -10% -10% -20% -10%;
+    background:
+      radial-gradient(600px 300px at 80% 20%, hsl(84 70% 88%) 0%, transparent 60%),
+      radial-gradient(500px 260px at 10% 90%, hsl(84 70% 92%) 0%, transparent 60%);
+    filter: blur(10px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Innovative orbital visual for hero (green, black, white only) */
+  .orbit-wrap {
+    position: relative;
+    isolation: isolate;
+  }
+  .orbit-core {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: 120px;
+    width: 120px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, hsl(84 70% 65%), hsl(84 70% 45%));
+    box-shadow: 0 0 0 6px hsl(84 70% 45% / 0.2), 0 0 60px hsl(84 70% 65% / 0.5);
+    z-index: 2;
+  }
+  .orbit-ring {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 999px;
+    border: 1px solid hsl(0 0% 0% / 0.12);
+  }
+  .orbit-ring.r1 { height: 280px; width: 280px; }
+  .orbit-ring.r2 { height: 360px; width: 360px; }
+  .orbit-ring.r3 { height: 440px; width: 440px; }
+
+  .orbit-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 12px;
+    width: 12px;
+    border-radius: 999px;
+    background: hsl(84 70% 45%);
+    box-shadow: 0 0 0 2px hsl(84 70% 45% / 0.2), 0 0 24px hsl(84 70% 55% / 0.8);
+    transform-origin: 0 0;
+  }
+  .orbit-anim { animation: orbit-rotate linear infinite; }
+  .o1 { transform: rotate(0deg) translateX(140px); animation-duration: 14s; }
+  .o2 { transform: rotate(0deg) translateX(180px); animation-duration: 18s; }
+  .o3 { transform: rotate(0deg) translateX(220px); animation-duration: 22s; }
+  @keyframes orbit-rotate { to { transform: rotate(360deg) translateX(var(--tx,140px)); } }
+
+  .glow-veil {
+    position: absolute;
+    inset: -10% -10% -10% -10%;
+    background: radial-gradient(600px 300px at 70% 30%, hsl(84 70% 88%) 0%, transparent 60%);
+    filter: blur(12px);
+    z-index: 0;
+  }
+
+  /* Globe connection anim */
+  .globe-node {
+    fill: hsl(84 70% 45%);
+    filter: drop-shadow(0 0 10px hsl(84 70% 60% / 0.9));
+    animation: pulse-slow 2.2s ease-in-out infinite;
+  }
+  .globe-path {
+    stroke: hsl(84 70% 40%);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 420;
+    stroke-dashoffset: 420;
+    animation: globe-draw 3s ease-in-out infinite alternate;
+  }
+  .globe-travel {
+    fill: hsl(84 70% 45%);
+    filter: drop-shadow(0 0 8px hsl(84 70% 60% / 0.9));
+  }
+  @keyframes globe-draw {
+    0% { stroke-dashoffset: 420; opacity: 0.6; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
   }
 }
 

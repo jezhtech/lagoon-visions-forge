@@ -26,26 +26,26 @@ const WhyChooseUs = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background elements */}
+      {/* Background elements tuned to Lagoon */}
       <div className="absolute inset-0">
-        <div className="floating-blob w-80 h-80 bg-gradient-to-r from-purple-400 to-pink-400 top-20 right-10" />
-        <div className="floating-blob w-64 h-64 bg-gradient-to-r from-blue-400 to-cyan-400 bottom-20 left-20" style={{ animationDelay: '3s' }} />
+        <div className="floating-blob w-80 h-80 bg-gradient-to-r from-lime-400 to-emerald-300 top-20 right-10" />
+        <div className="floating-blob w-64 h-64 bg-gradient-to-r from-lime-300 to-emerald-300 bottom-20 left-20" style={{ animationDelay: '3s' }} />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-block text-sm font-medium text-primary mb-4">
-            Why Ventures Choose LAGOON
+            Why Choose Lagoon Technologies
           </div>
           <h2 className="text-h2 font-bold text-foreground mb-6">
-            The Future of
+            Built for clarity,
             <br />
-            <span className="hero-gradient">Venture Management</span>
+            <span className="hero-gradient">security, and speed</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join forward-thinking ventures that have discovered the power of intelligent automation. 
-            Our platform doesn't just improve efficiency—it redefines how businesses operate.
+            We combine data engineering excellence with thoughtful design to deliver
+            reliable, scalable platforms your teams love to use.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
                 key={index}
                 className="glass-card p-8 rounded-2xl group hover:scale-105 transition-all duration-500"
               >
-                <div className="w-14 h-14 bg-gradient-to-r from-primary to-purple-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 bg-black text-white rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <IconComponent className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">

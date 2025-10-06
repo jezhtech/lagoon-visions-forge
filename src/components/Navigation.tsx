@@ -16,14 +16,16 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo - simplified like enyard */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="flex items-center space-x-1">
-              <div className="w-2 h-6 bg-slate-900 rounded-sm" />
-              <div className="w-2 h-4 bg-slate-600 rounded-sm" />
-              <div className="w-2 h-8 bg-slate-900 rounded-sm" />
-            </div>
-            <span className="text-xl font-bold text-foreground">LAGOON</span>
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              src="/lagoon-logo.png"
+              alt="Lagoon Technologies"
+              className="h-8 w-auto"
+              loading="eager"
+              decoding="async"
+            />
+            <span className="text-xl font-extrabold tracking-tight" style={{ color: 'hsl(84 70% 45%)' }}>LAGOON</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -96,9 +98,9 @@ const Navigation = () => {
             <Button variant="ghost" size="sm" className="hidden md:inline-flex text-foreground hover:text-primary">
               Login
             </Button>
-            <Button 
-              size="sm" 
-              className="hidden md:inline-flex bg-foreground text-background hover:bg-foreground/90 rounded-lg"
+            <Button
+              size="sm"
+              className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
             >
               Register
             </Button>

@@ -39,24 +39,24 @@ const ProductShowcase = () => {
     <section className="py-24 relative overflow-hidden">
       {/* Background floating elements */}
       <div className="absolute inset-0">
-        <div className="floating-blob w-96 h-96 bg-gradient-to-r from-green-400 to-blue-400 top-10 right-0" style={{ animationDelay: '1s' }} />
-        <div className="floating-blob w-72 h-72 bg-gradient-to-r from-pink-400 to-purple-400 bottom-0 left-10" style={{ animationDelay: '4s' }} />
+        <div className="floating-blob w-96 h-96 bg-gradient-to-r from-lime-400 to-emerald-400 top-10 right-0" style={{ animationDelay: '1s' }} />
+        <div className="floating-blob w-72 h-72 bg-gradient-to-r from-lime-300 to-emerald-300 bottom-0 left-10" style={{ animationDelay: '4s' }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-block text-sm font-medium text-primary mb-4">
-            Our Innovation Suite  
+            Our Products
           </div>
           <h2 className="text-h2 font-bold text-foreground mb-6">
-            Powerful Software
+            Purpose-built
             <br />
-            <span className="hero-gradient">Solutions</span>
+            <span className="hero-gradient">enterprise platforms</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover our comprehensive range of enterprise-grade software solutions, 
-            each designed to address specific business challenges with cutting-edge technology.
+            From ERP to workforce and safety, Lagoon products help teams move faster
+            with dependable foundations and clean interfaces.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ const ProductShowcase = () => {
           {products.map((product, index) => {
             const IconComponent = product.icon;
             return (
-              <div key={product.id} className="glass-card p-6 rounded-2xl group hover:scale-105 transition-all duration-500">
+              <div key={product.id} className="p-6 rounded-2xl border border-black/10 bg-white hover:shadow-float transition-all duration-500">
                 {/* Product Image */}
                 <div className="relative h-48 overflow-hidden rounded-xl mb-6">
                   <img
@@ -74,7 +74,7 @@ const ProductShowcase = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-12 h-12 rounded-xl bg-black/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -92,7 +92,7 @@ const ProductShowcase = () => {
                   {/* Features */}
                   <div className="grid grid-cols-2 gap-2">
                     {product.features.map((feature) => (
-                      <div key={feature} className="flex items-center text-sm text-muted-foreground">
+                      <div key={feature} className="flex items-center text-sm text-black/70">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                         {feature}
                       </div>
@@ -100,7 +100,7 @@ const ProductShowcase = () => {
                   </div>
 
                   {/* CTA */}
-                  <Button variant="outline" className="w-full mt-6 group-hover:border-primary group-hover:text-primary transition-all rounded-xl">
+                  <Button variant="outline" className="w-full mt-6 border-black/20 text-black hover:border-primary hover:text-primary transition-all rounded-xl">
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
